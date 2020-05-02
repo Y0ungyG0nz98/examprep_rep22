@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Trip</title>
+</head>
+<body>
+    <div class="header">
+        <div class="space"></div>
+        <a href="/home" class="right">Home</a>
+        <a href="/logout" class="right">Logout</a>
+    </div>
+    <div class="box">
+        <h1>Add a Trip</h1>
+            {% if messages %}
+            {% for message in messages %}
+            <p style = "color:blue;">{{message}}</p>
+            {% endfor %}
+            {% endif %}
+            <form action="/createtrip" method="post">   <!--trip/add-->   <!--/createWish-->
+                {% csrf_token %}
+                <p>Destination: <input type="text" name="itemName" id=""></p>  <!--Item/Product  name="itemName"-->
+                <p>Description: <input type="text" name="itemName1" id=""></p>   <!--name="itemName"-->
+                <p>Travel Date From: <input type="date" name="itemName2" id=""></p>
+                <p>Travel Date To: <input type="date" name="itemName3" id=""></p>
+                <p><input type="submit" value="Add"></p>
+            </form>
+    </div>
+    <style>
+        .header {
+            display: flexbox;
+            margin-left: 1800px;
+        }
+        .box {
+            border: solid black 5px;
+            width: fit-content;
+            padding: 20px;
+        }
+    </style>
+</body>
+</html>

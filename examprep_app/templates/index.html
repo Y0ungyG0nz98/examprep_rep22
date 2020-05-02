@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration/Login Page</title>
+    <style>
+        .register, .login{
+            display:inline-block;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="xlarge">Welcome to Travel Buddy!</h1>
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+    <div class="register">
+        <h1>Register</h1>
+        <form action="/register" method="post">
+            {% csrf_token %}
+            <p>First Name: <input type="text" name="fname" id=""></p>
+                <p>Last Name: <input type="text" name="lname" id=""></p>
+            <p>Email: <input type="text" name="email" id=""></p>
+                <p>Password <input type="text" name="pw" id=""></p>
+            <p id="note">*Password Should be at least 8 characters</p>
+            <p>Confirm Password: <input type="text" name="cpw" id=""></p>
+                <p><input type="submit" value="Register!"></p>
+            <!-- <p>Birthday</p> -->
+            </form>
+    </div>
+
+    <div class="login">
+        <h1>Login</h1>
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <p>Email: <input type="text" name="email" id=""></p>
+            <p>Password <input type="text" name="pw" id=""></p>
+            <p><input type="submit" value="Login!"></p>
+        </form>
+    </div>
+
+    <style>
+        .register{
+            border: solid black 5px;
+            padding: 30px;
+        }
+        #note {
+            font-size: smaller;
+        }
+        .login{
+            border: solid black 5px;
+            padding: 30px;
+        }
+    </style>
+
+</body>
+</html>

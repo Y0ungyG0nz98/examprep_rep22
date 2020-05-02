@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+        
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+        background-color: #dddddd;
+        }
+        </style>
+</head>
+<body>
+    <h1>Success. Welcome {{loggedinUser.firstName}}</h1>
+    <a href="/logout">Logout</a>
+    <p>Your wish list</p>
+    <table>
+        <tr>
+        <th>Item</th>
+        <th>Added By</th>
+        <th>Date Added</th>
+        <th>Action</th>
+        </tr>
+        {% for itemObj in mywishes %}
+        <tr>
+            <td><a href="/items/{{itemObj.id}}">{{itemObj.name}}</a></td>
+            <td>{{itemObj.uploader.firstName}}</td>
+            <td>{{itemObj.created_at}}</td>
+            {% if loggedinUser == itemObj.uploader %}
+            <td><a href="/delete/{{itemObj.id}}">Delete</a></td>
+            {% else %}
+            <td><a href="/removefromFav/{{itemObj.id}}">Remove from Favorites</a></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+        </table>
+    <p>Other Peoples wish list</p>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Added By</th>
+            <th>Date Added</th>
+            <th>Action</th>
+        </tr>
+        {% for itemObj in notMywishes %}
+        <tr>
+            <td><a href="/items/{{itemObj.id}}">{{itemObj.name}}</a></td>
+            <td>{{itemObj.uploader.firstName}}</td>
+            <td>{{itemObj.created_at}}</td>
+            {% if loggedinUser == itemObj.uploader %}
+            <td><a href="">Delete</a></td>
+            {% else %}
+            <td><a href="/addtoFav/{{itemObj.id}}">Add To Favorites</a></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="trip/add">Add Item</a>
+</body>
+</html>
