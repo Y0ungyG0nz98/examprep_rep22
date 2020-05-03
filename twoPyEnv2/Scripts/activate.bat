@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\Cristian_2\Desktop\codex_home\Python_stack\django\django_intro\examprep\gitrepo_21\onePyEnv1
+set VIRTUAL_ENV=C:\Users\Cristian_2\Documents\server_pub\examprep\twoPyEnv2
 
 if not defined PROMPT set PROMPT=$P$G
 
@@ -16,7 +16,7 @@ if defined _OLD_VIRTUAL_PROMPT set PROMPT=%_OLD_VIRTUAL_PROMPT%
 if defined _OLD_VIRTUAL_PYTHONHOME set PYTHONHOME=%_OLD_VIRTUAL_PYTHONHOME%
 
 set _OLD_VIRTUAL_PROMPT=%PROMPT%
-set PROMPT=(onePyEnv1) %PROMPT%
+set PROMPT=(twoPyEnv2) %PROMPT%
 
 if defined PYTHONHOME set _OLD_VIRTUAL_PYTHONHOME=%PYTHONHOME%
 set PYTHONHOME=
